@@ -1,0 +1,18 @@
+[2026-05-05 18:41:05] [INFO] CREATE FILE :  test.txt
+
+[2026-05-05 18:41:19] [INFO] DELETE FILE :  test.txt
+
+[2026-05-05 18:43:33] [INFO] CREATE FILE :  salam.c
+
+[2026-05-06 19:28:46] [INFO] CREATE FILE : wissal.txt
+[2026-05-06 19:29:01] [INFO] CREATE FILE : jjj.txt
+[2026-05-06 19:31:16] [INFO] CREATE FILE : hello.exe
+[2026-05-06 19:31:16] [ALERT] Extension interdite detectee : hello.exe
+[2026-05-15 23:29:17] [INFO] DELETE FILE : salam.c
+[2026-05-15 23:29:27] [INFO] DELETE FILE : jjj.txt
+[2026-05-15 23:29:40] [INFO] DELETE FILE : hello.exe
+[2026-05-15 23:29:40] [INFO] DELETE FILE : wissal.txt
+[2026-05-15 23:29:59] [INFO] CREATE FILE : hello.exe
+[2026-05-15 23:29:59] [ALERT] Extension interdite detectee : hello.exe
+[2026-05-15 23:31:33] [INFO] CREATE FILE : .env
+[2026-05-15 23:31:33] [ALERT] Fichier cache detecte : .env
