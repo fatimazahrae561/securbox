@@ -1,5 +1,6 @@
 #include "analyzer.h"
 #include "logger.h"
+#include "stats.h"
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
@@ -43,6 +44,7 @@ void analyze_event(int mask, const char *filename){
 time_t now = time(NULL);
 char message[512];
 
+update_stats(mask);
 //============CREATE==============
 if(mask & IN_CREATE){
 sprintf(message, "CREATE FILE : %s", filename);
@@ -52,12 +54,14 @@ log_event("INFO", message);
 if(is_hidden_file(filename)){
 sprintf(message, "Fichier cache detecte : %s",filename);
 log_event("ALERT", message);
+increment_alerts();
 printf("[ALERTE] %s\n", message);
 }
 //extension interdite
 if(is_forbidden_extension(filename)){
 sprintf(message, "Extension interdite detectee : %s",filename);
 log_event("ALERT", message);
+increment_alerts();
 printf("[ALERTE] %s\n", message);
 }
 }
@@ -75,6 +79,7 @@ if(difftime(now, delete_counter.first_time <= DELETE_TIME_WINDOW)){
 if(delete_counter.count >= DELETE_THRESHOLD){
 sprintf(message, "Activite suspecte: %d suppressions en %d secondes",delete_counter.count, DELETE_TIME_WINDOW);
 log_event("ALERT",message);
+increment_alerts();
 printf("[ALERTE] %s\n", message);
 delete_counter.count = 0;
 }
@@ -97,6 +102,7 @@ if(difftime(now, delete_counter.first_time <= MODIFY_TIME_WINDOW)){
 if(modify_counter.count >= MODIFY_THRESHOLD){
 sprintf(message, "Activite suspecte: %d modificatiosn rapides (%s)",modify_counter.count, filename);
 log_event("ALERT",message);
+increment_alerts();
 printf("[ALERTE] %s\n", message);
 modify_counter.count = 0;
 }

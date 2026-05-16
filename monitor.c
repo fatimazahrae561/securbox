@@ -8,7 +8,7 @@
 
 #define BUFFER_SIZE 1024
 
-int running = 1; 
+volatile sig_atomic_t  running = 1; 
 void *monitor_thread(void *arg){
 char *path =(char *)arg;
 int fd= inotify_init();

@@ -4,6 +4,8 @@
 #include<pthread.h>
 #include "logger.h"
 #include "monitor.h"
+#include "stats.h"
+#include "signals.h"
 
 int main(int argc, char *argv[]){
 if(argc != 2){
@@ -23,11 +25,16 @@ printf("Dossier valide: %s\n", argv[1]);
 
 init_logger("logs/securebox.log");
 
+init_stats();
+
+setup_signals();
+
 pthread_t thread;
 //lance le thread monitor
 pthread_create(&thread, NULL, monitor_thread, argv[1]);
 //attendre la fin 
 pthread_join(thread, NULL);
+
 
 
 return 0;
