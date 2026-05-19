@@ -1,6 +1,10 @@
 #include "monitor.h"
 #include "logger.h"
 #include "analyzer.h"
+#include "queue.h"
+#include "event.h"
+#include <string.h>
+#include <time.h>
 #include <sys/inotify.h>
 #include<unistd.h>
 #include<stdio.h>
@@ -9,9 +13,10 @@
 #define BUFFER_SIZE 1024
 
 volatile sig_atomic_t  running = 1; 
+
 void *monitor_thread(void *arg){
-char *path =(char *)arg;
-int fd= inotify_init();
+	char *path =(char *)arg;
+	int fd= inotify_init();
 if (fd == -1){
 perror("inotify_init");
 return NULL;
@@ -55,7 +60,16 @@ log_event("INFO",msg);
 }*/
 
 if(event -> len >0){
-analyze_event(event->mask, event->name);
+//analyze_event(event->mask, event->name);
+event_t new_event;
+
+new_event.mask = event->mask;
+
+strcpy(new_event.filename, event->name);
+
+new_event.timestamp = time(NULL);
+
+queue_push(new_event);
 }
 i += sizeof(struct inotify_event) + event->len;
 }

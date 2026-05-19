@@ -1,17 +1,20 @@
 #include "analyzer.h"
 #include "logger.h"
 #include "stats.h"
+#include "event.h"
+#include "queue.h"
+#include "monitor.h"
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 #include <sys/inotify.h>
-
 #define DELETE_THRESHOLD 5
 #define DELETE_TIME_WINDOW 10
 
 #define MODIFY_THRESHOLD 3
 #define MODIFY_TIME_WINDOW 5
 
+//volatile sig_atomic_t running=1;
 //Structures pour tracking
 typedef struct {
 int count;
@@ -112,6 +115,19 @@ modify_counter.first_time = now;
 }
 }
 }
+// ================= THREAD ANALYZER =================
 
+void *analyzer_thread(void *arg) {
 
+    while (running) {
 
+        // récupérer événement depuis queue
+        event_t event = queue_pop();
+
+        // analyser événement
+        analyze_event(event.mask,
+                      event.filename);
+    }
+
+    return NULL;
+}

@@ -30,3 +30,10 @@
 [2026-05-16 18:50:21] [ALERT] Extension interdite detectee : a.sh
 [2026-05-16 18:50:27] [INFO] Programme arrêté proprement
 [INFO] Logger ferme proprement
+[2026-05-17 20:19:41] [INFO] Programme arrêté proprement
+[INFO] Logger ferme proprement
+[2026-05-17 20:31:20] [INFO] CREATE FILE : lllllll.exe
+[2026-05-17 20:31:20] [ALERT] Extension interdite detectee : lllllll.exe
+[2026-05-17 20:32:01] [INFO] DELETE FILE : lllllll.exe
+[2026-05-17 20:32:26] [INFO] Programme arrêté proprement
+[INFO] Logger ferme proprement

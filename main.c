@@ -6,7 +6,7 @@
 #include "monitor.h"
 #include "stats.h"
 #include "signals.h"
-
+#include "analyzer.h"
 int main(int argc, char *argv[]){
 if(argc != 2){
 printf("Usage: %s <directory>\n", argv[0]);
@@ -29,12 +29,22 @@ init_stats();
 
 setup_signals();
 
-pthread_t thread;
-//lance le thread monitor
-pthread_create(&thread, NULL, monitor_thread, argv[1]);
-//attendre la fin 
-pthread_join(thread, NULL);
+pthread_t monitor_tid;
+pthread_t analyzer_tid;
 
+pthread_create(&monitor_tid,
+               NULL,
+               monitor_thread,
+               argv[1]);
+
+pthread_create(&analyzer_tid,
+               NULL,
+               analyzer_thread,
+               NULL);
+
+pthread_join(monitor_tid, NULL);
+
+pthread_join(analyzer_tid, NULL);
 
 
 return 0;
