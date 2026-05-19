@@ -3,6 +3,7 @@
 #include "stats.h"
 #include "event.h"
 #include "queue.h"
+#include "log_queue.h"
 #include "monitor.h"
 #include <stdio.h>
 #include <string.h>
@@ -51,19 +52,44 @@ update_stats(mask);
 //============CREATE==============
 if(mask & IN_CREATE){
 sprintf(message, "CREATE FILE : %s", filename);
-log_event("INFO", message);
+//log_event("INFO", message);
+
+log_message_t log;
+
+strcpy(log.level, "INFO");
+
+strcpy(log.message, message);
+
+log_queue_push(log);
 
 //fichier cache
 if(is_hidden_file(filename)){
 sprintf(message, "Fichier cache detecte : %s",filename);
-log_event("ALERT", message);
+//log_event("ALERT", message);
+
+log_message_t log;
+
+strcpy(log.level, "ALERT");
+
+strcpy(log.message, message);
+
+log_queue_push(log);
+
 increment_alerts();
 printf("[ALERTE] %s\n", message);
 }
 //extension interdite
 if(is_forbidden_extension(filename)){
 sprintf(message, "Extension interdite detectee : %s",filename);
-log_event("ALERT", message);
+//log_event("ALERT", message);
+log_message_t log;
+
+strcpy(log.level, "ALERT");
+
+strcpy(log.message, message);
+
+log_queue_push(log);
+
 increment_alerts();
 printf("[ALERTE] %s\n", message);
 }
@@ -71,7 +97,14 @@ printf("[ALERTE] %s\n", message);
 //============DELETE===============
 if(mask  & IN_DELETE){
 sprintf(message, "DELETE FILE : %s", filename);
-log_event("INFO", message);
+//log_event("INFO", message);
+log_message_t log;
+
+strcpy(log.level, "INFO");
+
+strcpy(log.message, message);
+
+log_queue_push(log);
 //compteur
 if(delete_counter.count == 0){
 delete_counter.first_time = now;
@@ -81,7 +114,14 @@ delete_counter.count++;
 if(difftime(now, delete_counter.first_time <= DELETE_TIME_WINDOW)){
 if(delete_counter.count >= DELETE_THRESHOLD){
 sprintf(message, "Activite suspecte: %d suppressions en %d secondes",delete_counter.count, DELETE_TIME_WINDOW);
-log_event("ALERT",message);
+//log_event("ALERT",message);
+log_message_t log;
+
+strcpy(log.level, "ALERT");
+
+strcpy(log.message, message);
+
+log_queue_push(log);
 increment_alerts();
 printf("[ALERTE] %s\n", message);
 delete_counter.count = 0;
@@ -94,7 +134,14 @@ delete_counter.first_time = now;
 //============MODIFY===============
 if(mask  & IN_MODIFY){
 sprintf(message, "MODIFY FILE : %s", filename);
-log_event("INFO", message);
+//log_event("INFO", message);
+log_message_t log;
+
+strcpy(log.level, "INFO");
+
+strcpy(log.message, message);
+
+log_queue_push(log);
 //compteur
 if(modify_counter.count == 0){
 modify_counter.first_time = now;
@@ -104,7 +151,14 @@ modify_counter.count++;
 if(difftime(now, delete_counter.first_time <= MODIFY_TIME_WINDOW)){
 if(modify_counter.count >= MODIFY_THRESHOLD){
 sprintf(message, "Activite suspecte: %d modificatiosn rapides (%s)",modify_counter.count, filename);
-log_event("ALERT",message);
+//log_event("ALERT",message);
+log_message_t log;
+
+strcpy(log.level, "ALERT");
+
+strcpy(log.message, message);
+
+log_queue_push(log);
 increment_alerts();
 printf("[ALERTE] %s\n", message);
 modify_counter.count = 0;

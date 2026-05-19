@@ -31,6 +31,7 @@ setup_signals();
 
 pthread_t monitor_tid;
 pthread_t analyzer_tid;
+pthread_t logger_tid;
 
 pthread_create(&monitor_tid,
                NULL,
@@ -42,9 +43,16 @@ pthread_create(&analyzer_tid,
                analyzer_thread,
                NULL);
 
+pthread_create(&logger_tid,
+               NULL,
+               logger_thread,
+               NULL);
+
 pthread_join(monitor_tid, NULL);
 
 pthread_join(analyzer_tid, NULL);
+
+pthread_join(logger_tid, NULL);
 
 
 return 0;

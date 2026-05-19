@@ -1,4 +1,6 @@
 #include "logger.h"
+#include "log_queue.h"
+#include "monitor.h"
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
@@ -37,4 +39,18 @@ fprintf(log_file, "[INFO] Logger ferme proprement\n");
 fclose(log_file);
 log_file = NULL;
 }
+}
+
+void *logger_thread(void *arg) {
+
+    while (running) {
+
+        log_message_t log =
+            log_queue_pop();
+
+        log_event(log.level,
+                  log.message);
+    }
+
+    return NULL;
 }

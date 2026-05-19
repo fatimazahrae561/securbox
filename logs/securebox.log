@@ -37,3 +37,13 @@
 [2026-05-17 20:32:01] [INFO] DELETE FILE : lllllll.exe
 [2026-05-17 20:32:26] [INFO] Programme arrêté proprement
 [INFO] Logger ferme proprement
+[INFO] Logger ferme proprement
+[INFO] Logger ferme proprement
+[INFO] Logger ferme proprement
+[2026-05-19 22:46:11] [INFO] CREATE FILE : a.exe
+[2026-05-19 22:46:11] [ALERT] Extension interdite detectee : a.exe
+[INFO] Logger ferme proprement
+[2026-05-19 22:47:42] [INFO] CREATE FILE : w.exe
+[2026-05-19 22:47:42] [ALERT] Extension interdite detectee : w.exe
+[2026-05-19 22:48:10] [INFO] DELETE FILE : w.exe
+[INFO] Logger ferme proprement
