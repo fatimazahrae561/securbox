@@ -2,12 +2,17 @@
 #include<sys/stat.h>
 #include<stdlib.h>
 #include<pthread.h>
+#include <string.h>
 #include "logger.h"
 #include "monitor.h"
 #include "stats.h"
 #include "signals.h"
 #include "analyzer.h"
+
+char monitored_path[256];
+
 int main(int argc, char *argv[]){
+
 if(argc != 2){
 printf("Usage: %s <directory>\n", argv[0]);
 return 1;
@@ -22,6 +27,8 @@ printf("Ce n'est pas un dossier\n");
 return 1;
 }
 printf("Dossier valide: %s\n", argv[1]);
+
+strncpy(monitored_path, argv[1], sizeof(monitored_path)-1);
 
 init_logger("logs/securebox.log");
 

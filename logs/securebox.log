@@ -47,3 +47,49 @@
 [2026-05-19 22:47:42] [ALERT] Extension interdite detectee : w.exe
 [2026-05-19 22:48:10] [INFO] DELETE FILE : w.exe
 [INFO] Logger ferme proprement
+[2026-05-19 23:39:04] [INFO] CREATE FILE : file.txt
+[2026-05-19 23:39:10] [INFO] CREATE FILE : .file.txt.swp
+[2026-05-19 23:39:10] [ALERT] Fichier cache detecte : .file.txt.swp
+[2026-05-19 23:39:10] [INFO] MODIFY FILE : .file.txt.swp
+[2026-05-19 23:39:10] [INFO] DELETE FILE : .file.txt.swp
+[2026-05-19 23:39:10] [INFO] CREATE FILE : .file.txt.swp
+[2026-05-19 23:39:10] [ALERT] Fichier cache detecte : .file.txt.swp
+[2026-05-19 23:39:10] [INFO] MODIFY FILE : .file.txt.swp
+[2026-05-19 23:39:14] [INFO] MODIFY FILE : file.txt
+[2026-05-19 23:39:14] [ALERT] Activite suspecte: 3 modificatiosn rapides (file.txt)
+[2026-05-19 23:39:14] [INFO] MODIFY FILE : file.txt
+[2026-05-19 23:39:14] [INFO] DELETE FILE : .file.txt.swp
+[2026-05-19 23:44:02] [INFO] CREATE FILE : 1
+[2026-05-19 23:44:02] [INFO] CREATE FILE : 2
+[2026-05-19 23:44:02] [INFO] CREATE FILE : 3
+[2026-05-19 23:44:02] [INFO] CREATE FILE : 4
+[2026-05-19 23:44:02] [INFO] CREATE FILE : 5
+[2026-05-19 23:44:02] [INFO] CREATE FILE : 6
+[2026-05-19 23:45:20] [INFO] DELETE FILE : 1
+[2026-05-19 23:45:20] [INFO] DELETE FILE : 2
+[2026-05-19 23:45:20] [INFO] DELETE FILE : 3
+[2026-05-19 23:45:20] [ALERT] Activite suspecte: 5 suppressions en 10 secondes
+[2026-05-19 23:45:20] [INFO] DELETE FILE : 4
+[2026-05-19 23:45:20] [INFO] DELETE FILE : 5
+[2026-05-19 23:45:20] [INFO] DELETE FILE : 6
+[2026-05-19 23:46:19] [INFO] Programme arrêté proprement
+[INFO] Logger ferme proprement
+[2026-05-20 00:42:45] [INFO] CREATE DIRECTORY : test1
+[2026-05-20 00:43:05] [INFO] DELETE DIRECTORY : test1
+[2026-05-20 00:43:28] [INFO] MOVED FROM : file1.txt
+[2026-05-20 00:43:28] [INFO] MOVED TO : file.txt
+[2026-05-20 00:43:53] [INFO] CREATE DIRECTORY : test2
+[2026-05-20 00:44:04] [INFO] MOVED FROM : file.txt
+[INFO] Logger ferme proprement
+[2026-05-20] [02:18:56] [INFO] [CREATE FILE] [hi.exe] [test/hi.exe] PID:7481
+[2026-05-20] [02:18:56] [ALERT] [FORBIDDEN EXTENSION] [hi.exe] [test/hi.exe] PID:7481
+[2026-05-20] [02:19:08] [INFO] [CREATE FILE] [uuu.txt] [test/uuu.txt] PID:7481
+[2026-05-20] [02:19:21] [INFO] [DELETE FILE] [hi.exe] [test/hi.exe] PID:7481
+[2026-05-20] [02:19:26] [INFO] [DELETE FILE] [uuu.txt] [test/uuu.txt] PID:7481
+[INFO] Logger ferme proprement
+[2026-05-20] [02:26:44] [INFO] [MOVED FROM] [a.exe] [test/a.exe] PID:7553
+[2026-05-20] [02:26:44] [INFO] [MOVED TO] [a1.exe] [test/a1.exe] PID:7553
+[INFO] Logger ferme proprement
+[2026-05-20] [02:27:44] [INFO] [MOVED FROM] [a1.exe] [test/a1.exe] PID:7584
+[2026-05-20] [02:27:44] [INFO] [MOVED TO] [a2.exe] [test/a2.exe] PID:7584
+[INFO] Logger ferme proprement

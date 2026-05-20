@@ -7,7 +7,11 @@ typedef struct {
 
     char level[32];
 
-    char message[512];
+    char event[64];
+
+    char resource[256];
+
+    char path[256];
 
 } log_message_t;
 

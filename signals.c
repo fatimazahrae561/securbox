@@ -1,5 +1,6 @@
 #include "signals.h"
 #include "stats.h"
+#include "analyzer.h"
 #include "logger.h"
 #include "log_queue.h"
 #include <signal.h>
@@ -18,13 +19,8 @@ void handle_sigint(int sig) {
     print_stats();
 
     //log_event("INFO", "Programme arrêté proprement");
-    log_message_t log;
-
-    strcpy(log.level, "INFO");
-    sprintf(message,"Programme arrêté proprement");
-    strcpy(log.message, message);
-
-    log_queue_push(log);	
+    //log_message_t log;
+push_log("INFO","SYSYTEM STOP","securebox");
     close_logger();
 
     exit(0);
@@ -33,3 +29,4 @@ void handle_sigint(int sig) {
 void setup_signals() {
     signal(SIGINT, handle_sigint);
 }
+

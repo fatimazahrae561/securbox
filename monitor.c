@@ -22,7 +22,16 @@ perror("inotify_init");
 return NULL;
 }
 //surveillance
-int wd=inotify_add_watch(fd,path,IN_CREATE | IN_DELETE | IN_MODIFY);
+int wd = inotify_add_watch(
+    fd,
+    path,
+
+    IN_CREATE |
+    IN_DELETE |
+    IN_MODIFY |
+    IN_MOVED_FROM |
+    IN_MOVED_TO
+);
 if(wd == -1){
 perror("inotify_add_watch");
 return NULL;
@@ -59,18 +68,81 @@ sprintf(msg,"MODIFIED FILE :  %s\n", event->name);
 log_event("INFO",msg);
 }*/
 
-if(event -> len >0){
-//analyze_event(event->mask, event->name);
-event_t new_event;
+if(event->len > 0){
 
-new_event.mask = event->mask;
+    event_t new_event;
 
-strcpy(new_event.filename, event->name);
+    new_event.mask = event->mask;
 
-new_event.timestamp = time(NULL);
+    strcpy(new_event.filename,
+           event->name);
 
-queue_push(new_event);
+    new_event.timestamp = time(NULL);
+
+    // =========================
+    // CREATION DOSSIER
+    // =========================
+
+    if ((event->mask & IN_CREATE) &&
+        (event->mask & IN_ISDIR)) {
+
+        printf("CREATE DIRECTORY : %s\n",
+               event->name);
+    }
+
+    // =========================
+    // SUPPRESSION DOSSIER
+    // =========================
+
+    else if ((event->mask & IN_DELETE) &&
+             (event->mask & IN_ISDIR)) {
+
+        printf("DELETE DIRECTORY : %s\n",
+               event->name);
+    }
+
+    // =========================
+    // RENOMMAGE / DEPLACEMENT
+    // =========================
+
+    else if (event->mask & IN_MOVED_FROM) {
+
+        printf("MOVED FROM : %s\n",
+               event->name);
+    }
+
+    else if (event->mask & IN_MOVED_TO) {
+
+        printf("MOVED TO : %s\n",
+               event->name);
+    }
+
+    // =========================
+    // FICHIERS NORMAUX
+    // =========================
+
+    else if (event->mask & IN_CREATE) {
+
+        printf("CREATE FILE : %s\n",
+               event->name);
+    }
+
+    else if (event->mask & IN_DELETE) {
+
+        printf("DELETE FILE : %s\n",
+               event->name);
+    }
+
+    else if (event->mask & IN_MODIFY) {
+
+        printf("MODIFY FILE : %s\n",
+               event->name);
+    }
+
+    queue_push(new_event);
 }
+
+
 i += sizeof(struct inotify_event) + event->len;
 }
 }
