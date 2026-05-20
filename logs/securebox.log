@@ -102,3 +102,5 @@
 [2026-05-20] [19:28:55] [INFO] [DELETE FILE] [la.txt] [test/la.txt] PID:12472
 [2026-05-20] [19:28:57] [] [] [] [] PID:12472
 [2026-05-20] [19:32:09] [INFO] [CREATE FILE] [hy.txt] [test/hy.txt] PID:12596
+[2026-05-20] [20:36:21] [INFO] [CREATE FILE] [gty.exe] [test/gty.exe] PID:14904
+[2026-05-20] [20:36:21] [ALERT] [FORBIDDEN EXTENSION] [gty.exe] [test/gty.exe] PID:14904
