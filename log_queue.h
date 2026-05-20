@@ -19,4 +19,8 @@ void log_queue_push(log_message_t log);
 
 log_message_t log_queue_pop();
 
+
+void log_queue_stop();
+
+void log_queue_destroy();
 #endif

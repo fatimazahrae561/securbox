@@ -8,6 +8,8 @@
 #include "stats.h"
 #include "signals.h"
 #include "analyzer.h"
+#include "queue.h"
+#include "log_queue.h"
 
 char monitored_path[256];
 
@@ -60,6 +62,14 @@ pthread_join(monitor_tid, NULL);
 pthread_join(analyzer_tid, NULL);
 
 pthread_join(logger_tid, NULL);
+
+// ================= CLEANUP =================
+
+queue_destroy();
+
+log_queue_destroy();
+
+close_logger();
 
 
 return 0;

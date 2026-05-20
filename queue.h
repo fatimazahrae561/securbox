@@ -8,4 +8,8 @@
 void queue_push(event_t event);
 event_t queue_pop();
 
+void queue_stop();
+
+void queue_destroy();
+
 #endif

@@ -93,3 +93,12 @@
 [2026-05-20] [02:27:44] [INFO] [MOVED FROM] [a1.exe] [test/a1.exe] PID:7584
 [2026-05-20] [02:27:44] [INFO] [MOVED TO] [a2.exe] [test/a2.exe] PID:7584
 [INFO] Logger ferme proprement
+[2026-05-20] [18:59:22] [INFO] [CREATE FILE] [g.txt] [test/g.txt] PID:11579
+[INFO] Logger ferme proprement
+[2026-05-20] [19:20:44] [INFO] [DELETE FILE] [g.txt] [test/g.txt] PID:12191
+[INFO] Logger ferme proprement
+[2026-05-20] [19:24:44] [INFO] [CREATE FILE] [la.txt] [test/la.txt] PID:12302
+[INFO] Logger ferme proprement
+[2026-05-20] [19:28:55] [INFO] [DELETE FILE] [la.txt] [test/la.txt] PID:12472
+[2026-05-20] [19:28:57] [] [] [] [] PID:12472
+[2026-05-20] [19:32:09] [INFO] [CREATE FILE] [hy.txt] [test/hy.txt] PID:12596
