@@ -104,3 +104,26 @@
 [2026-05-20] [19:32:09] [INFO] [CREATE FILE] [hy.txt] [test/hy.txt] PID:12596
 [2026-05-20] [20:36:21] [INFO] [CREATE FILE] [gty.exe] [test/gty.exe] PID:14904
 [2026-05-20] [20:36:21] [ALERT] [FORBIDDEN EXTENSION] [gty.exe] [test/gty.exe] PID:14904
+[2026-05-20] [22:21:03] [] [] [] [] PID:2809
+[2026-05-20] [22:24:32] [INFO] [CREATE FILE] [file.txt] [/home/fatimazahrae/projet/test/file.txt] PID:2830
+[2026-05-20] [22:27:52] [INFO] [MODIFY FILE] [file.txt] [/home/fatimazahrae/projet/test/file.txt] PID:2830
+[2026-05-20] [22:31:27] [INFO] [DELETE FILE] [file.txt] [/home/fatimazahrae/projet/test/file.txt] PID:2830
+[2026-05-20] [22:33:37] [INFO] [CREATE FILE] [.env] [/home/fatimazahrae/projet/test/.env] PID:2830
+[2026-05-20] [22:33:37] [ALERT] [HIDDEN FILE] [.env] [/home/fatimazahrae/projet/test/.env] PID:2830
+[2026-05-20] [22:54:37] [INFO] [CREATE FILE] [script.sh] [/home/fatimazahrae/projet/test/script.sh] PID:2830
+[2026-05-20] [22:54:37] [ALERT] [FORBIDDEN EXTENSION] [script.sh] [/home/fatimazahrae/projet/test/script.sh] PID:2830
+[2026-05-20] [23:00:01] [INFO] [CREATE FILE] [file1.txt] [/home/fatimazahrae/projet/test/file1.txt] PID:2830
+[2026-05-20] [23:00:01] [INFO] [CREATE FILE] [file2.txt] [/home/fatimazahrae/projet/test/file2.txt] PID:2830
+[2026-05-20] [23:00:01] [INFO] [CREATE FILE] [file3.txt] [/home/fatimazahrae/projet/test/file3.txt] PID:2830
+[2026-05-20] [23:00:01] [INFO] [CREATE FILE] [file4.txt] [/home/fatimazahrae/projet/test/file4.txt] PID:2830
+[2026-05-20] [23:00:01] [INFO] [CREATE FILE] [file5.txt] [/home/fatimazahrae/projet/test/file5.txt] PID:2830
+[2026-05-20] [23:00:01] [INFO] [CREATE FILE] [file6.txt] [/home/fatimazahrae/projet/test/file6.txt] PID:2830
+[2026-05-20] [23:00:11] [INFO] [DELETE FILE] [file1.txt] [/home/fatimazahrae/projet/test/file1.txt] PID:2830
+[2026-05-20] [23:00:11] [INFO] [DELETE FILE] [file2.txt] [/home/fatimazahrae/projet/test/file2.txt] PID:2830
+[2026-05-20] [23:00:11] [INFO] [DELETE FILE] [file3.txt] [/home/fatimazahrae/projet/test/file3.txt] PID:2830
+[2026-05-20] [23:00:11] [INFO] [DELETE FILE] [file4.txt] [/home/fatimazahrae/projet/test/file4.txt] PID:2830
+[2026-05-20] [23:00:11] [INFO] [DELETE FILE] [file5.txt] [/home/fatimazahrae/projet/test/file5.txt] PID:2830
+[2026-05-20] [23:00:11] [ALERT] [MULTIPLE DELETE DETECTED] [file5.txt] [/home/fatimazahrae/projet/test/file5.txt] PID:2830
+[2026-05-20] [23:00:11] [INFO] [DELETE FILE] [file6.txt] [/home/fatimazahrae/projet/test/file6.txt] PID:2830
+[2026-05-20] [23:03:17] [INFO] [CREATE DIRECTORY] [dir] [/home/fatimazahrae/projet/test/dir] PID:2830
+[2026-05-20] [23:06:44] [] [] [] [] PID:2830
