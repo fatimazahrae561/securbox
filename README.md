@@ -1,6 +1,6 @@
-# 🔐 SecureBox - Système de surveillance de répertoire sous Linux
+# SecureBox - Système de surveillance de répertoire sous Linux
 
-## 📌 Description
+## Description
 
 SecureBox est une application système développée en langage C sous Linux permettant de surveiller en temps réel un répertoire donné.
 
@@ -10,9 +10,9 @@ Le projet utilise une architecture **multi-threads avec synchronisation POSIX**.
 
 ---
 
-## ⚙️ Fonctionnalités
+## Fonctionnalités
 
-### 📁 Surveillance en temps réel
+### Surveillance en temps réel
 - Création de fichiers
 - Suppression de fichiers
 - Modification de fichiers
@@ -21,7 +21,7 @@ Le projet utilise une architecture **multi-threads avec synchronisation POSIX**.
 
 ---
 
-### 📊 Analyse de sécurité
+### Analyse de sécurité
 - Détection de fichiers cachés
 - Détection d’extensions interdites
 - Détection de suppressions massives
@@ -29,7 +29,7 @@ Le projet utilise une architecture **multi-threads avec synchronisation POSIX**.
 
 ---
 
-### 📝 Journalisation
+###  Journalisation
 Chaque événement est enregistré dans un fichier log avec :
 
 - Date
@@ -42,7 +42,7 @@ Chaque événement est enregistré dans un fichier log avec :
 
 ---
 
-### 📊 Statistiques
+### Statistiques
 Le système affiche :
 
 - Nombre total d’événements
@@ -55,7 +55,7 @@ Le système affiche :
 
 ---
 
-### 🧵 Architecture multi-threads
+###  Architecture multi-threads
 
 - Thread de surveillance (inotify)
 - Thread d’analyse
@@ -64,7 +64,7 @@ Le système affiche :
 
 ---
 
-### 🔄 Communication inter-processus
+###  Communication inter-processus
 
 - Files de messages (queues)
 - Mutex
@@ -72,7 +72,7 @@ Le système affiche :
 
 ---
 
-### 🛑 Arrêt propre
+###  Arrêt propre
 
 Le système gère correctement :
 
@@ -88,7 +88,7 @@ Lors de l’arrêt :
 
 ---
 
-## 📂 Structure du projet
+##  Structure du projet
 securebox/
 │
 ├── main.c
